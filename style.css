@@ -1,0 +1,320 @@
+/*Importa a fonte 'Poppins' do Google Fonts para uso nos elementos de texto.*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Define configurações gerais para todos os elementos, como margem, preenchimento e caixa de modelo, e aplica a fonte 'Poppins' */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #86c1fd;
+    /* Define a aparência do corpo da página, como centralização e altura mínima */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+/* Define estilos para o cabeçalho, como posicionamento fixo, preenchimento, exibição flexível e alinhamento dos itens */
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+/* Define estilos para o logotipo, como tamanho da fonte e cor */
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+/* Define estilos para os links de navegação, como tamanho da fonte, cor, decoração de texto e margem */
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+/* Adiciona um efeito de linha sob os links de navegação quando são hoverados */
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Define a transição de transformação do efeito de linha quando os links de navegação são hoverados */
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+/* Define estilos para o botão de login na navegação, como tamanho, cor, borda, cursor e transição */
+
+.navigation .btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+/* Define estilos para o botão de login na navegação quando é hoverado, alterando a cor de fundo e o texto */
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease height 2.s ease;
+}
+
+/* Define estilos para o elemento wrapper da janela pop-up, como tamanho, cor de fundo, borda, efeitos visuais e transições */
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+/* Define estilos para o elemento wrapper quando a janela pop-up está ativa, escalando para exibir */
+
+.wrapper.active{
+    height: 520px;
+}
+
+/* Define estilos para o elemento wrapper quando está ativo, alterando a altura */
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+/* Define estilos para o elemento form-box dentro do wrapper, como tamanho e preenchimento */
+
+.wrapper .form-box.login {
+   transition: transform .18s ease;
+   transform: translateX(0);
+}
+
+/* Define estilos para o formulário de login dentro do wrapper, como transições de transformação */
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+/* Define estilos para o formulário de login quando o wrapper está ativo, aplicando uma transição de transformação */
+
+.wrapper .form-box.register {
+    position: absolute;
+    transform: none;
+    transform: translateX(400px);
+}
+
+/* Define estilos para o formulário de registro dentro do wrapper, como posicionamento e translação */
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+/* Define estilos para o formulário de registro quando o wrapper está ativo, aplicando uma transição de transformação */
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Define estilos para o ícone de fechamento da janela pop-up, como posicionamento, tamanho, cor de fundo, cor do texto e alinhamento */
+
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+/* Define estilos para os títulos dos formulários dentro do wrapper, como tamanho da fonte, cor e alinhamento */
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+/* Define estilos para as caixas de entrada nos formulários, como tamanho, borda inferior e margem */
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+/* Define estilos para as etiquetas nas caixas de entrada dos formulários, como posicionamento, tamanho da fonte, cor e transições */
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+/* Define estilos para as etiquetas nas caixas de entrada dos formulários quando estão focadas ou têm um valor válido, alterando a posição */
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+/* Define estilos para as entradas de texto nos formulários, como tamanho, cor, preenchimento e fonte */
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+/* Define estilos para os ícones nas caixas de entrada dos formulários, como posicionamento, tamanho, cor e alinhamento */
+
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Define estilos para a seção de "lembrar senha" e "esqueceu a senha" nos formulários, como tamanho da fonte, cor e alinhamento */
+
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+/* Define estilos para as caixas de seleção nos formulários, alterando a cor de destaque */
+
+.remember-forgot a {
+    color: #162938;
+    text-decoration: none;
+}
+
+/* Define estilos para os links nas seções de "lembrar senha" e "esqueceu a senha" nos formulários, como cor e decoração de texto */
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Define estilos para os links nas seções de "lembrar senha" e "esqueceu a senha" nos formulários quando hoverados, adicionando um sublinhado */
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Define estilos para os botões nos formulários, como tamanho, cor de fundo, borda, cursor, tamanho da fonte e cor do texto */
+
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+/* Define estilos para a seção de "login-registrar" nos formulários, como tamanho da fonte, cor, alinhamento e margem */
+
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Define estilos para os links dentro da seção de "login-registrar" nos formulários, como cor, decoração de texto e peso da fonte */
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+/* Define estilos para os links dentro da seção de "login-registrar" nos formulários quando hoverados, adicionando um sublinhado */
